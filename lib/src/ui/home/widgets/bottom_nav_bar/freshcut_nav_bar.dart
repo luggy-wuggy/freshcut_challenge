@@ -1,64 +1,109 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'bottom_nav_bar.dart';
+import 'package:freshcut_challenge/src/common/constants/constants.dart';
+import 'package:freshcut_challenge/src/ui/home/home.dart';
 
-class FreshCutBottomNav extends StatelessWidget {
+class FreshCutBottomNav extends ConsumerWidget {
   const FreshCutBottomNav({Key? key}) : super(key: key);
   final double sizeIcon = 24;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final bottomNav = ref.watch(bottomNavIndexProvider);
+
     return BottomNavigationBar(
-      currentIndex: 0,
+      backgroundColor: FreshCutColors.kBackgroundColor.withOpacity(0.9),
+      currentIndex: FreshCutBottomNavType.values.indexOf(bottomNav),
+      onTap: (int index) {
+        final bottomNavType = FreshCutBottomNavType.values[index];
+
+        ref.read(bottomNavIndexProvider.notifier).onTap(bottomNavType);
+      },
       showSelectedLabels: true,
       type: BottomNavigationBarType.fixed,
+      selectedItemColor: FreshCutColors.kSunGold,
       items: [
         BottomNavigationBarItem(
           label: "Hot",
-          icon: CustomPaint(
-            size: Size(
-              sizeIcon,
-              (sizeIcon * 1.1666666666666667).toDouble(),
-            ),
-            painter: TodayIconPainter(
-              color: const Color(0xffF2BC3D),
+          icon: Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: CustomPaint(
+              size: Size(
+                sizeIcon,
+                (sizeIcon * 1.1666666666666667).toDouble(),
+              ),
+              painter: TodayIconPainter(
+                backgroundColor: bottomNav == FreshCutBottomNavType.hot
+                    ? FreshCutColors.kSunGold
+                    : Colors.transparent,
+                borderColor: bottomNav == FreshCutBottomNavType.hot
+                    ? FreshCutColors.kSunGold
+                    : FreshCutColors.kGreyedOut,
+              ),
             ),
           ),
         ),
         BottomNavigationBarItem(
           label: "Discover",
-          icon: CustomPaint(
-            size: Size(
-              sizeIcon,
-              (sizeIcon * 0.96).toDouble(),
+          icon: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CustomPaint(
+              size: Size(
+                sizeIcon,
+                (sizeIcon * 0.96).toDouble(),
+              ),
+              painter: DiscoverIconPainter(
+                borderColor: bottomNav == FreshCutBottomNavType.discover
+                    ? FreshCutColors.kSunGold
+                    : FreshCutColors.kGreyedOut,
+              ),
             ),
-            painter: DiscoverIconPainter(),
           ),
         ),
         BottomNavigationBarItem(
           label: "Watch",
-          icon: CustomPaint(
-            size: Size(sizeIcon, (sizeIcon * 0.96).toDouble()),
-            painter: WatchIconPainter(),
+          icon: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CustomPaint(
+              size: Size(sizeIcon, (sizeIcon * 0.96).toDouble()),
+              painter: WatchIconPainter(
+                borderColor: bottomNav == FreshCutBottomNavType.watch
+                    ? FreshCutColors.kSunGold
+                    : FreshCutColors.kGreyedOut,
+              ),
+            ),
           ),
         ),
         BottomNavigationBarItem(
-          label: "Inbox",
-          icon: CustomPaint(
-            size: Size(sizeIcon, (sizeIcon * 0.96).toDouble()),
-            painter: InboxIconPainter(),
+          label: "Activity",
+          icon: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CustomPaint(
+              size: Size(sizeIcon, (sizeIcon * 0.96).toDouble()),
+              painter: InboxIconPainter(
+                borderColor: bottomNav == FreshCutBottomNavType.activity
+                    ? FreshCutColors.kSunGold
+                    : FreshCutColors.kGreyedOut,
+              ),
+            ),
           ),
         ),
         BottomNavigationBarItem(
           label: "Profile",
-          icon: Container(
-            height: sizeIcon - 1.8,
-            width: sizeIcon - 1.8,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(
-                color: const Color(0xff504C57),
-                width: 1.8,
+          icon: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              height: sizeIcon - 3,
+              width: sizeIcon - 3,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: bottomNav == FreshCutBottomNavType.profile
+                      ? FreshCutColors.kSunGold
+                      : FreshCutColors.kGreyedOut,
+                  width: 1.8,
+                ),
               ),
             ),
           ),

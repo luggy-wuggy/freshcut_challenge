@@ -8,6 +8,10 @@ import 'package:flutter/material.dart';
 
 //Copy this CustomPainter code to the Bottom of the File
 class InboxIconPainter extends CustomPainter {
+  final Color borderColor;
+
+  InboxIconPainter({required this.borderColor});
+
   @override
   void paint(Canvas canvas, Size size) {
     Path path0 = Path();
@@ -98,12 +102,12 @@ class InboxIconPainter extends CustomPainter {
     Paint paint0Stroke = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = size.width * 0.06000000;
-    paint0Stroke.color = const Color(0xff504C57).withOpacity(1.0);
+    paint0Stroke.color = borderColor;
     paint0Stroke.strokeCap = StrokeCap.round;
     canvas.drawPath(path0, paint0Stroke);
 
     Paint paint0Fill = Paint()..style = PaintingStyle.fill;
-    paint0Fill.color = const Color(0xff000000).withOpacity(0);
+    paint0Fill.color = Colors.transparent;
     canvas.drawPath(path0, paint0Fill);
 
     Path path_1 = Path();
@@ -115,11 +119,11 @@ class InboxIconPainter extends CustomPainter {
     Paint paint1Stroke = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = size.width * 0.05000000;
-    paint1Stroke.color = const Color(0xff504C57).withOpacity(1.0);
+    paint1Stroke.color = borderColor;
     canvas.drawPath(path_1, paint1Stroke);
 
     Paint paint1Fill = Paint()..style = PaintingStyle.fill;
-    paint1Fill.color = const Color(0xff000000).withOpacity(1.0);
+    paint1Fill.color = Colors.transparent;
     canvas.drawPath(path_1, paint1Fill);
 
     Path path2 = Path();
@@ -129,11 +133,11 @@ class InboxIconPainter extends CustomPainter {
     Paint paint2Stroke = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = size.width * 0.05000000;
-    paint2Stroke.color = const Color(0xff504C57).withOpacity(1.0);
+    paint2Stroke.color = borderColor;
     canvas.drawPath(path2, paint2Stroke);
 
     Paint paint2Fill = Paint()..style = PaintingStyle.fill;
-    paint2Fill.color = const Color(0xff000000).withOpacity(1.0);
+    paint2Fill.color = Colors.transparent;
     canvas.drawPath(path2, paint2Fill);
   }
 

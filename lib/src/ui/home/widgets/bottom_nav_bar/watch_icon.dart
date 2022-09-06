@@ -8,6 +8,10 @@ import 'package:flutter/material.dart';
 
 //Copy this CustomPainter code to the Bottom of the File
 class WatchIconPainter extends CustomPainter {
+  final Color borderColor;
+
+  WatchIconPainter({required this.borderColor});
+
   @override
   void paint(Canvas canvas, Size size) {
     Path path_0 = Path();
@@ -22,12 +26,12 @@ class WatchIconPainter extends CustomPainter {
     Paint paint0Stroke = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = size.width * 0.06000000;
-    paint0Stroke.color = const Color(0xff504C57).withOpacity(1.0);
+    paint0Stroke.color = borderColor;
     paint0Stroke.strokeJoin = StrokeJoin.round;
     canvas.drawPath(path_0, paint0Stroke);
 
     Paint paint0Fill = Paint()..style = PaintingStyle.fill;
-    paint0Fill.color = const Color(0xff000000).withOpacity(0.0);
+    paint0Fill.color = Colors.transparent;
     canvas.drawPath(path_0, paint0Fill);
 
     Path path_1 = Path();
@@ -40,12 +44,12 @@ class WatchIconPainter extends CustomPainter {
     Paint paint1Stroke = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = size.width * 0.05000000;
-    paint1Stroke.color = const Color(0xff504C57).withOpacity(1.0);
+    paint1Stroke.color = borderColor;
     paint1Stroke.strokeCap = StrokeCap.round;
     canvas.drawPath(path_1, paint1Stroke);
 
     Paint paint1Fill = Paint()..style = PaintingStyle.fill;
-    paint1Fill.color = const Color(0xff000000).withOpacity(0.0);
+    paint1Fill.color = Colors.transparent;
     canvas.drawPath(path_1, paint1Fill);
   }
 
