@@ -2,10 +2,16 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:freshcut_challenge/src/common/common.dart';
+import 'package:gradient_borders/gradient_borders.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class HotCards extends StatelessWidget {
-  const HotCards({Key? key}) : super(key: key);
+  const HotCards({
+    Key? key,
+    required this.primaryColor,
+  }) : super(key: key);
+
+  final Color primaryColor;
 
   @override
   Widget build(BuildContext context) {
@@ -14,22 +20,24 @@ class HotCards extends StatelessWidget {
       width: 345,
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.075),
         borderRadius: const BorderRadius.all(
           Radius.circular(32),
         ),
-        border: Border.all(
-          color: const Color(0xFFF2BC3D),
-          width: 1,
+        border: GradientBoxBorder(
+          gradient: LinearGradient(
+            colors: [primaryColor.withOpacity(0.20), Colors.transparent],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          width: 1.7,
         ),
-        gradient: const RadialGradient(
+        gradient: RadialGradient(
           colors: [
-            Color(0xFFF2BC3D),
-            Colors.transparent,
+            primaryColor.withOpacity(0.20),
+            const Color(0xff28262C).withOpacity(0.20),
           ],
           center: Alignment.topLeft,
-          radius: 10,
-          focalRadius: 2,
+          radius: 1.6,
         ),
       ),
       child: Column(
@@ -49,17 +57,18 @@ class HotCards extends StatelessWidget {
                 child: ClipOval(
                   child: BackdropFilter(
                     filter: ImageFilter.blur(
-                      sigmaX: 3.0,
-                      sigmaY: 3.0,
+                      sigmaX: 5.0,
+                      sigmaY: 5.0,
                     ),
                     child: Container(
                       height: 64,
                       width: 64,
                       decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.white.withOpacity(0.28),
+                          color: Colors.white.withOpacity(0.26),
                           border: Border.all(
                             color: Colors.white.withOpacity(0.15),
+                            width: 1.5,
                           )),
                       child: const Icon(
                         Icons.play_arrow,
@@ -117,7 +126,7 @@ class HotCards extends StatelessWidget {
             barRadius: const Radius.circular(4),
             backgroundColor: Colors.white10,
             linearGradient: const LinearGradient(
-              stops: [0.7, 0.95],
+              stops: [0.9, 0.95],
               colors: [
                 FreshCutColors.kSunGold,
                 Colors.white,

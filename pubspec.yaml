@@ -39,6 +39,7 @@ dependencies:
   flutter_riverpod: ^1.0.4
   riverpod: ^1.0.3
   percent_indicator: ^4.2.2
+  gradient_borders: ^0.2.0
 
 dev_dependencies:
   flutter_test:

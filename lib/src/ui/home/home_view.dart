@@ -34,7 +34,7 @@ class HomeView extends StatelessWidget {
                     foreground: Paint()
                       ..shader = const LinearGradient(
                         colors: <Color>[
-                          Color(0xffF2BC3D),
+                          FreshCutColors.kSunGold,
                           Color(0xffD93636),
                         ],
                       ).createShader(
@@ -43,13 +43,17 @@ class HomeView extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 34),
-                const HotCards(),
+                const HotCards(
+                  primaryColor: FreshCutColors.kSunGold,
+                ),
                 const SizedBox(height: 32),
-                const HotCards(),
+                const HotCards(
+                  primaryColor: FreshCutColors.kMidnightPurple,
+                ),
                 const SizedBox(height: 32),
-                const HotCards(),
-                const SizedBox(height: 32),
-                const HotCards(),
+                const HotCards(
+                  primaryColor: FreshCutColors.kMidnightRed,
+                ),
               ],
             ),
           ),
