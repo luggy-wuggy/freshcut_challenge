@@ -2,16 +2,17 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:freshcut_challenge/src/common/common.dart';
+import 'package:freshcut_challenge/src/data/model/hot_card_model.dart';
 import 'package:gradient_borders/gradient_borders.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class HotCards extends StatelessWidget {
   const HotCards({
     Key? key,
-    required this.primaryColor,
+    required this.hotCard,
   }) : super(key: key);
 
-  final Color primaryColor;
+  final HotCardModel hotCard;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,10 @@ class HotCards extends StatelessWidget {
         ),
         border: GradientBoxBorder(
           gradient: LinearGradient(
-            colors: [primaryColor.withOpacity(0.20), Colors.transparent],
+            colors: [
+              hotCard.primaryColor.withOpacity(0.20),
+              Colors.transparent
+            ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -33,7 +37,7 @@ class HotCards extends StatelessWidget {
         ),
         gradient: RadialGradient(
           colors: [
-            primaryColor.withOpacity(0.20),
+            hotCard.primaryColor.withOpacity(0.20),
             const Color(0xff28262C).withOpacity(0.20),
           ],
           center: Alignment.topLeft,
@@ -47,7 +51,7 @@ class HotCards extends StatelessWidget {
             clipBehavior: Clip.none,
             children: [
               Image.asset(
-                'assets/images/smash.png',
+                hotCard.imagePath,
                 width: 321,
                 height: 288,
               ),
@@ -82,9 +86,9 @@ class HotCards extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 16),
-          const Text(
-            'Smash Stockpile',
-            style: TextStyle(
+          Text(
+            hotCard.title,
+            style: const TextStyle(
               fontSize: 25.0,
               fontWeight: FontWeight.w700,
               color: Colors.white,
@@ -92,25 +96,25 @@ class HotCards extends StatelessWidget {
           ),
           const SizedBox(height: 2),
           Row(
-            children: const [
+            children: [
               Text(
-                '+10 New Videos',
-                style: TextStyle(
+                '+${hotCard.newVideos} New Videos',
+                style: const TextStyle(
                   fontSize: 12.0,
                   fontWeight: FontWeight.w400,
                   color: FreshCutColors.kSunGold,
                 ),
               ),
-              Spacer(),
-              Icon(
+              const Spacer(),
+              const Icon(
                 Icons.remove_red_eye_outlined,
                 color: Color(0xff8C8797),
                 size: 12,
               ),
-              SizedBox(width: 2),
+              const SizedBox(width: 2),
               Text(
-                '15/30',
-                style: TextStyle(
+                '${hotCard.watchedVideos}/${hotCard.totalVideos}',
+                style: const TextStyle(
                   fontSize: 12.0,
                   fontWeight: FontWeight.w400,
                   color: Color(0xff8C8797),

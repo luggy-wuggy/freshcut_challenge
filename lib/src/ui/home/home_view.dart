@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freshcut_challenge/src/common/common.dart';
+import 'package:freshcut_challenge/src/data/model/hot_card_model.dart';
 import 'package:freshcut_challenge/src/ui/home/home.dart';
 import 'package:freshcut_challenge/src/ui/home/widgets/hot_cards.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
@@ -43,16 +44,15 @@ class HomeView extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 34),
-                const HotCards(
-                  primaryColor: FreshCutColors.kSunGold,
-                ),
-                const SizedBox(height: 32),
-                const HotCards(
-                  primaryColor: FreshCutColors.kMidnightPurple,
-                ),
-                const SizedBox(height: 32),
-                const HotCards(
-                  primaryColor: FreshCutColors.kMidnightRed,
+                ...hotCardList.map(
+                  (e) => Column(
+                    children: [
+                      HotCards(
+                        hotCard: e,
+                      ),
+                      const SizedBox(height: 32)
+                    ],
+                  ),
                 ),
               ],
             ),
