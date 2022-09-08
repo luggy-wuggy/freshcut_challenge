@@ -38,10 +38,10 @@ List<HotCardModel> hotCardList = [
     primaryColor: FreshCutColors.kMidnightPurple,
   ),
   HotCardModel(
-    title: "Smash Stockpile",
-    imagePath: "assets/images/smash.png",
+    title: "Valorant Volume",
+    imagePath: "assets/images/valorant.png",
     newVideos: 21,
-    watchedVideos: 15,
+    watchedVideos: 21,
     totalVideos: 21,
     primaryColor: FreshCutColors.kMidnightRed,
   ),
