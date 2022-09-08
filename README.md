@@ -15,6 +15,7 @@ I need to implement the UI design from this Figma: https://www.figma.com/file/H5
 
 
 ## Demo
+(note: lag is due to video file upload)
 
 https://user-images.githubusercontent.com/54586837/189216893-fa01f9fe-68d6-4004-9d02-68129ad7657a.mp4
 
