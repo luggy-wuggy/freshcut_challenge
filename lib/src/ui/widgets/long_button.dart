@@ -45,6 +45,8 @@ class FreshCutLongButton extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          leading == null ? const SizedBox.shrink() : leading!,
+          leading == null ? const SizedBox.shrink() : const SizedBox(width: 10),
           Text(
             title,
             style: const TextStyle(

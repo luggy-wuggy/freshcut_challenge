@@ -88,6 +88,11 @@ class HomeView extends StatelessWidget {
                   primaryColor: FreshCutColors.kSunGold,
                   title: "Join Metaview Discord",
                   onTap: () {},
+                  leading: Image.asset(
+                    'assets/images/discord.png',
+                    height: 24,
+                    width: 24,
+                  ),
                 ),
               ],
             ),
