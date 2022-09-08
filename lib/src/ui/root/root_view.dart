@@ -19,10 +19,10 @@ class RootView extends ConsumerWidget {
         index: FreshCutBottomNavType.values.indexOf(bottomNav),
         children: const [
           HotView(),
-          HotView(),
-          HotView(),
-          HotView(),
-          HotView(),
+          DiscoveryView(),
+          WatchView(),
+          ActivityView(),
+          ProfileView(),
         ],
       ),
     );
