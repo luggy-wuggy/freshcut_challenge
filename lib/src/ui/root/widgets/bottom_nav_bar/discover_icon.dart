@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:freshcut_challenge/src/common/constants/ui.dart';
 
 //Add this CustomPaint widget to the Widget Tree
 // CustomPaint(

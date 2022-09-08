@@ -1,10 +1,10 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:freshcut_challenge/src/common/common.dart';
-import 'package:freshcut_challenge/src/data/model/hot_card_model.dart';
 import 'package:gradient_borders/gradient_borders.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+
+import 'package:freshcut_challenge/src/common/common.dart';
+import 'package:freshcut_challenge/src/data/model/model.dart';
 
 class HotCards extends StatelessWidget {
   const HotCards({

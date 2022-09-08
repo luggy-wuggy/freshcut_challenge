@@ -1,10 +1,9 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:freshcut_challenge/src/common/constants/constants.dart';
-import 'package:freshcut_challenge/src/ui/home/home.dart';
+import 'package:freshcut_challenge/src/common/common.dart';
+import 'package:freshcut_challenge/src/ui/root/root.dart';
 
 class FreshCutBottomNav extends ConsumerWidget {
   const FreshCutBottomNav({Key? key}) : super(key: key);

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:freshcut_challenge/src/ui/home/home.dart';
+import 'package:freshcut_challenge/src/ui/root/root_view.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'FreshCut Challenge',
-      home: HomeView(),
+      home: RootView(),
     );
   }
 }
