@@ -81,7 +81,13 @@ class HotCards extends StatelessWidget {
                         width: 64,
                         decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color: Colors.white.withOpacity(0.28),
+                            gradient: RadialGradient(
+                              colors: [
+                                Colors.black.withOpacity(0.4),
+                                Colors.white.withOpacity(0.18),
+                              ],
+                              radius: 1,
+                            ),
                             border: Border.all(
                               color: Colors.white.withOpacity(0.15),
                               width: 1,
