@@ -112,6 +112,7 @@ class FreshCutBottomNav extends ConsumerWidget {
                       width: 1.8,
                     ),
                   ),
+                  child: Image.asset('assets/images/profile.png'),
                 ),
               ),
             ),
